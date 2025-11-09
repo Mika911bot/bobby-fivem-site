@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Bobby.fivem</title>
+  <style>
+    /* Grundstil */
+    body {
+      margin: 0;
+      font-family: 'Poppins', sans-serif;
+      color: white;
+      overflow: hidden;
+      text-align: center;
+    }
+
+    /* YouTube Hintergrund */
+    #bg-video {
+      position: fixed;
+      right: 0;
+      bottom: 0;
+      min-width: 100%;
+      min-height: 100%;
+      z-index: -1;
+      object-fit: cover;
+      filter: brightness(40%);
+    }
+
+    /* Profilbereich */
+    .profile {
+      position: relative;
+      top: 15vh;
+    }
+
+    .profile img {
+      width: 130px;
+      height: 130px;
+      border-radius: 50%;
+      border: 3px solid white;
+      object-fit: cover;
+    }
+
+    h1 {
+      margin: 15px 0 5px 0;
+      font-size: 2em;
+    }
+
+    p {
+      color: #ccc;
+      margin-top: 0;
+    }
+
+    /* Social Boxen */
+    .socials {
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+      margin-top: 40px;
+    }
+
+    .social-box {
+      background: rgba(255, 255, 255, 0.1);
+      border: 1px solid rgba(255, 255, 255, 0.3);
+      border-radius: 12px;
+      padding: 10px 20px;
+      backdrop-filter: blur(10px);
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      transition: 0.3s;
+      text-decoration: none;
+      color: white;
+    }
+
+    .social-box:hover {
+      background: rgba(255, 255, 255, 0.3);
+      transform: scale(1.05);
+    }
+
+    .social-box img {
+      width: 25px;
+      height: 25px;
+    }
+
+    /* Musik-Box */
+    .music-player {
+      position: fixed;
+      bottom: 30px;
+      left: 50%;
+      transform: translateX(-50%);
+      background: rgba(255, 255, 255, 0.1);
+      border-radius: 15px;
+      padding: 15px 25px;
+      backdrop-filter: blur(10px);
+      display: flex;
+      align-items: center;
+      gap: 15px;
+    }
+
+    .music-title {
+      font-size: 1em;
+      margin-right: 10px;
+    }
+
+    input[type=range] {
+      width: 100px;
+    }
+
+    /* Schneeflocken-Effekt */
+    .snowflake {
+      position: fixed;
+      top: 0;
+      color: white;
+      font-size: 1em;
+      user-select: none;
+      z-index: 9999;
+      animation: fall linear infinite;
+    }
+
+    @keyframes fall {
+      0% { transform: translateY(0) rotate(0deg); opacity: 1; }
+      100% { transform: translateY(100vh) rotate(360deg); opacity: 0; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- YouTube Video Hintergrund -->
+  <iframe id="bg-video" src="https://www.youtube.com/embed/DSbnLLh5eeQ?autoplay=1&mute=0&controls=0&loop=1&playlist=DSbnLLh5eeQ" frameborder="0" allow="autoplay; fullscreen"></iframe>
+
+  <!-- Profil -->
+  <div class="profile">
+    <img src="6C8874E2-F6D4-4C91-8F70-396A91015C66.jpeg" alt="Profilbild">
+    <h1>Bobby.fivem</h1>
+    <p>📍 Frankfurt</p>
+  </div>
+
+  <!-- Social Links -->
+  <div class="socials">
+    <a class="social-box" href="https://discord.gg/a7mo" target="_blank">
+      <img src="https://cdn-icons-png.flaticon.com/512/5968/5968756.png" alt="Discord Icon">
+      Discord
+    </a>
+    <a class="social-box" href="https://www.tiktok.com/@bobby.fivem" target="_blank">
+      <img src="https://cdn-icons-png.flaticon.com/512/3046/3046125.png" alt="TikTok Icon">
+      TikTok
+    </a>
+  </div>
+
+  <!-- Musik Player -->
+  <div class="music-player">
+    <span class="music-title">🎵 Hodie Hodie</span>
+    <label>🔊</label>
+    <input type="range" id="volume" min="0" max="100" value="80">
+  </div>
+
+  <!-- Schneeflocken Script -->
+  <script>
+    // Schneeflocken generieren
+    function createSnowflake() {
+      const snowflake = document.createElement('div');
+      snowflake.classList.add('snowflake');
+      snowflake.textContent = '❄';
+      snowflake.style.left = Math.random() * window.innerWidth + 'px';
+      snowflake.style.animationDuration = (Math.random() * 3 + 2) + 's';
+      document.body.appendChild(snowflake);
+      setTimeout(() => snowflake.remove(), 5000);
+    }
+    setInterval(createSnowflake, 200);
+  </script>
+
+</body>
+</html>
